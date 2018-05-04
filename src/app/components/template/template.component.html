@@ -27,7 +27,8 @@
                placeholder="Apellido"
                name="apellido"
                [(ngModel)]="usuario.apellido"
-               minlength="5">
+               minlength="5"
+               required>
       </div>
     </div>
 
@@ -42,7 +43,9 @@
              placeholder="Correo electrónico"
              name="correo"
              [(ngModel)]="usuario.correo"
-             required>
+             required
+             id="correo"
+             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
     </div>
   </div>
 
