@@ -5,7 +5,7 @@ import { NgForm } from '@angular/forms';
   selector: 'app-template',
   templateUrl: './template.component.html',
   styles:[`
-    #correo .ng-invalid{
+    .ng-invalid.ng-touched:not(form){
       border: 1px solid red;
     }
   `]
@@ -15,8 +15,24 @@ export class TemplateComponent implements OnInit {
   usuario: Object = {
     nombre: null,
     apellido: null,
-    correo: null
+    correo: null,
+    pais: "",
+    sexo: "",
+    acepta: false
   };
+
+  paises = [
+    {
+      codigo:"MX",
+      nombre: "Mexico"
+    },
+    {
+      codigo:"USA",
+      nombre: "United States of America"
+    }
+  ];
+  
+  sexos: string[] = ["Hombre","Mujer","Sin definir"];
 
   constructor() { }
 
