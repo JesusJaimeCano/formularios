@@ -11,7 +11,8 @@
         <input class="form-control"
                type="text"
                placeholder="Nombre"
-               formControlName="nombre"> 
+               formControlName="nombre"
+               type="number"> 
                <!-- Otra forma de llegar a la validacion de los campos es asi -->
                <!-- *ngIf="forma.controls['nombreCompleto'].controls.nombre.errors?.required" -->
        <div  *ngIf="forma.get('nombreCompleto.nombre').errors?.required"

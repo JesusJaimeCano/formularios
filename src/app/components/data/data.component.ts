@@ -11,7 +11,7 @@ export class DataComponent {
 
   forma: FormGroup; //Responsable del manejo de la forma completamente
 
-  usuario: any = {
+  usuario: Object = {
     nombreCompleto: {
       nombre: "Jesus",
       apellido: "Terrazas"
@@ -26,11 +26,11 @@ export class DataComponent {
     this.forma = new FormGroup({
 
       'nombreCompleto': new FormGroup({
-          'nombre': new FormControl( this.usuario.nombreCompleto.nombre , [Validators.required,
+          'nombre': new FormControl('', [Validators.required,
                                          Validators.minLength(3)]),
-          'apellido': new FormControl( this.usuario.nombreCompleto.apellido , Validators.required),
+          'apellido': new FormControl('', Validators.required),
       }),
-      'correo': new FormControl( this.usuario.correo , [
+      'correo': new FormControl('', [
                                       Validators.required, 
                                       Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$")
                                     ])
@@ -41,12 +41,21 @@ export class DataComponent {
     
     console.log(this.usuario);
 
-    
+    this.forma.setValue( this.usuario );
     
   } 
 
   guardarCambios(){
     console.log(this.forma);
+    console.log(this.forma.value);
+
+    this.forma.reset({
+      nombreCompleto: {
+        nombre: "",
+        apellido: "",
+      }, 
+      correo: ""
+    });
     
   }
 
