@@ -12,7 +12,7 @@
                type="text"
                placeholder="Nombre"
                formControlName="nombre"
-               type="number"> 
+               type="text"> 
                <!-- Otra forma de llegar a la validacion de los campos es asi -->
                <!-- *ngIf="forma.controls['nombreCompleto'].controls.nombre.errors?.required" -->
        <div  *ngIf="forma.get('nombreCompleto.nombre').errors?.required"
@@ -52,7 +52,58 @@
     </div>
   </div>
 
+  <div class="form-group row">
+      <label class="col-2 col-form-label">Pasatimepos</label>
+      <div class="col-md-8" formArrayName="pasatiempos">
+        <input  *ngFor="let pasatiempo of forma.controls['pasatiempos'].controls; let i = index"
+                [formControlName]="i"
+                class="form-control"        
+                type="text">
+      </div>
 
+      <button (click)="agregarPasatiempo()"
+              type="button" 
+              class="btn btn-primary">
+              Nuevo
+      </button>
+
+  </div>
+
+  <div class="form-group row">
+      <label class="col-2 col-form-label">UserName</label>
+      <div class="col-md-8">
+  
+        <input class="form-control"
+               type="text"
+               placeholder="Nombre de usuario"
+               formControlName="username">
+  
+      </div>
+    </div>
+
+  <div class="form-group row">
+      <label class="col-2 col-form-label">Password</label>
+      <div class="col-md-8">
+  
+        <input class="form-control"
+               type="password"
+               placeholder="Ingresa un Password"
+               formControlName="password1">
+  
+      </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-2 col-form-label">Repite el Password</label>
+        <div class="col-md-8">
+    
+          <input class="form-control"
+                 type="password"
+                 placeholder="Repite el Password"
+                 formControlName="password2">
+    
+        </div>
+      </div>
 
   <div class="form-group row">
     <label class="col-2 col-form-label">&nbsp;</label>
@@ -69,4 +120,17 @@
   {{ forma.value | json }}
 
   {{ forma.valid | json }}
+
+  {{ forma.status }}
 </pre>
+
+
+
+<!-- <div class="form-group row">
+    <label class="col-2 col-form-label">Correo</label>
+    <div class="col-md-8">
+
+
+
+    </div>
+</div> -->
