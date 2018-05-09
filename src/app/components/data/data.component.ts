@@ -63,6 +63,12 @@ export class DataComponent {
       Validators.required, 
       this.noIgual.bind(this.forma)
     ])
+
+    this.forma.controls['correo'].valueChanges
+              .subscribe( data => {
+                console.log(data);
+                
+              } )
     
   } 
 
@@ -80,7 +86,7 @@ export class DataComponent {
 
   noIgual(control: FormControl): { [s:string]:boolean}{
 
-    console.log(this);
+    // console.log(this);
     let forma:any =  this;
     
 
